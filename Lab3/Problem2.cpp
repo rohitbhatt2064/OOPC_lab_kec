@@ -9,7 +9,7 @@ using namespace std;
 //Status Type
 int NonExisting=0 , Active = 1 , Frozen = 2; 
 int Max_Bank = 25;
-int count = 0;
+int NoOfBank = 0;
 
 class Account{
     private:
@@ -26,7 +26,7 @@ class Account{
      this->accountName ="";
      this->status = NonExisting;
      this->balance = 0 ;
-     this->id = count;
+     this->id = NoOfBank;
 
     }
      void createAccount(string name )
@@ -34,16 +34,19 @@ class Account{
      this->accountName = name;
      this->status = Active;
      this->balance = 0 ;
-     this->id =count;
+     this->id =NoOfBank;
+
+     cout<<"Creating Account..."<<endl;
+     cout<<"Account created with Id "<<this->id<<endl;
 
     }                       
      
      bool isActive()
     { 
     if(this->status==1)
-    return 1;
+    return true;
     else
-    return 0;
+    return false;
     }
     
     void deposit(int depositAmount )
@@ -84,7 +87,7 @@ class Account{
     }
      void sapat(Account &reciverAccount , int Amount)
     {
-        if(this->isActive() && reciverAccount.isActive() && reciverAccount.balance>= Amount)
+        if(this->isActive() && reciverAccount.isActive() && this->balance>= Amount)
         {
             reciverAccount.balance += Amount;
             this->balance -= Amount;
@@ -156,7 +159,7 @@ int main()
     {    cout<<"Enter Account Name : "<<endl;
         cin>>accountName;
 
-        account[count++].createAccount(accountName);
+        account[++NoOfBank].createAccount(accountName);
 
         break;
     }
