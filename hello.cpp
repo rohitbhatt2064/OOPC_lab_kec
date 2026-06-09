@@ -6,17 +6,22 @@ struct student{
     string name;
     int age;
     string address;
-
 };
-int main()
+
+void setvalue(student &s)
 {
-    student s;
+    
     s.name = "ram";
     cout<<"Enter your age";
     cin>>s.age; 
     s.address = "dhapakhel";
     cout << "name "<< s.name << ", \n age " <<s.age<<", \n address "<<s.address<<endl;
-    return 0;
+}
+int main()
+{student s;
+    setvalue(s);
+
+   
 
     
 }
