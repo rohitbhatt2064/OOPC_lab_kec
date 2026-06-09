@@ -41,7 +41,7 @@ class Time
 
     ~Time()
     {
-        cout<<"Destructor Loading...";
+        cout<<"Destructor Loading..."<<endl;
     }
     
 };
