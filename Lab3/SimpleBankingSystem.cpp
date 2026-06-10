@@ -1,13 +1,15 @@
 //Create a class name acc holder ( name , acc no , balance) , have constructor(default , paramatrized) destructor 
 //Display   deposit , withdraw , sapat 
-//Docx file
+
 
 #include<iostream>
+#include<string>
+
 
 using namespace std;
 
 //Status Type
-int NonExisting=0 , Active = 1 , Frozen = 2; 
+int NonExisting=0 , Active = 1 ;
 int Max_Bank = 25;
 int NoOfBank = 0;
 
@@ -87,16 +89,21 @@ class Account{
     }
      void sapat(Account &reciverAccount , int Amount)
     {
-        if(this->isActive() && reciverAccount.isActive() && this->balance>= Amount)
+        if(this->isActive() && reciverAccount.isActive() )
         {
+        if(this->balance>= Amount)
+         {
             reciverAccount.balance += Amount;
             this->balance -= Amount;
 
             cout<<"Transfer sucessifully completed"<<endl;
             cout<<"Sender Bank id "<< this->id<< " have now balance " <<this->balance<<endl;
             cout<<"Reciver Bank id "<< reciverAccount.id<< " have now balance " <<reciverAccount.balance<<endl;
-            
-
+         }
+         else
+         {
+            cout<<"Insufficient Balance..."<<endl; 
+         }  
         }
         else
         {
@@ -120,9 +127,22 @@ class Account{
      }
     }
 
+    friend void listAll(Account account[] );
+
+
     ~Account(){}//Destructor
 };
 
+void listAll(Account account[] ) //Size of araay passed as global var = NoOfBank
+{      cout<<endl<<"Account id  \t Account Name \t Balance"<<endl;
+    for(int i=1; i<= NoOfBank ; i++)
+    {
+        cout<<account[i].id<<"\t"<<account[i].accountName<<"\t"<<account[i].balance<<"\t"<<endl;
+
+    }
+    
+    
+}
 void help()
 {
 cout<<"============================================"<<endl;
@@ -133,7 +153,9 @@ cout<<"3. Withdrawing Amount"<<endl;
 cout<<"4. Take Sapat ( Transfering Amount)"<<endl;
 cout<<"5. Acessing KYC"<<endl;
 cout<<"6. Help"<<endl;
-cout<<"7. Exiting from program"<<endl;
+cout<<"7. List All Bank"<<endl;
+cout<<"8. Total no of Bank"<<endl;
+cout<<"9. Exiting from program"<<endl;
 cout<<"_____________________________________________"<<endl;
 
 }
@@ -195,8 +217,8 @@ int main()
     }
     case 4://Sapat
      {   int transferAmount = 0, senderId = 0, receiverId = 0;
-
-        cout<<"Deposit Initiated..."<<endl;
+        
+        cout<<"Sapat Initiated..."<<endl;
         cout << "Enter Sender Account ID: ";
         cin >> senderId;
         cout <<endl<< "Enter Receiver Account ID: ";
@@ -229,7 +251,20 @@ int main()
 
         break;
      }
-     case 7://Exit Feature
+     
+     case 7://Listing all Bank Account
+     {
+        listAll(account);
+        break;
+     }
+
+     case 8:
+     cout<<"Total no of Bank Account : "<<NoOfBank<<endl;
+
+
+     break;
+
+     case 9://Exit Feature
      cout<<"Are you sure you want to Exit 1:yes 0:no"<<endl;
      cin>>choice;
      if(choice)
@@ -244,8 +279,6 @@ int main()
     break;
 
     }
-
 }
-
     return 0;
 }
