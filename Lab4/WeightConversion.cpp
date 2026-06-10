@@ -78,7 +78,7 @@ class Price
     
     friend void calculate(Weight& w , Price& p);
     
-    void calc(Weight& w)
+    void calculate(Weight& w)
     {
         this->total = w.kg * this->rate;
     }
@@ -100,12 +100,12 @@ int main()
    calculate(W1,P1);
    P1.showTotal();
 
-
+    cout<<"___________________________________________"<<endl;
    Weight W2;
    W2.setData();
    Price P2;
    P2.setData();
-   P2.calc(W2);
+   P2.calculate(W2);
    P2.showTotal();
 
 
