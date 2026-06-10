@@ -74,7 +74,7 @@ class Account{
         if(isActive() && this->balance>=withdrawAmount)
         {
             
-            this->balance -= withdrawAmount;
+            this->balance = this->balance - withdrawAmount;
             
             cout<<"Withdraw sucessifully completed"<<endl;
             cout<<"Bank id "<< this->id<< " have now balance " <<this->balance<<endl;
@@ -211,7 +211,7 @@ int main()
         cin>>withdrawAmount;
         cout<<endl;
 
-        account[accountId].deposit(withdrawAmount);
+        account[accountId].withdraw(withdrawAmount);
         
         break;
     }
