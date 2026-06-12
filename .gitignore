@@ -1,1 +1,6 @@
 *.exe
+
+#To Ignore Visual Studio's local configuration folders
+.vs/
+*.vsidx
+*.slnx
