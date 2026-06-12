@@ -9,7 +9,7 @@ using namespace std;
 
 //Status Type
 int NonExisting=0 , Active = 1 ;
-int Max_Bank = 25;
+const int Max_Bank = 25;
 int NoOfBank = 0;
 
 class Account{
