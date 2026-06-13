@@ -90,19 +90,19 @@ class Account{
     {
         if(this->isActive() && reciverAccount.isActive() )
         {
-        if(this->balance>= Amount)
-         {
-            reciverAccount.balance += Amount;
-            this->balance -= Amount;
+            if(this->balance>= Amount)
+            {
+                reciverAccount.balance += Amount;
+                this->balance -= Amount;
 
-            cout<<"Transfer sucessifully completed"<<endl;
-            cout<<"Sender Bank id "<< this->id<< " have now balance " <<this->balance<<endl;
-            cout<<"Reciver Bank id "<< reciverAccount.id<< " have now balance " <<reciverAccount.balance<<endl;
-         }
-         else
-         {
-            cout<<"Insufficient Balance..."<<endl; 
-         }  
+                cout<<"Transfer sucessifully completed"<<endl;
+                cout<<"Sender Bank id "<< this->id<< " have now balance " <<this->balance<<endl;
+                cout<<"Reciver Bank id "<< reciverAccount.id<< " have now balance " <<reciverAccount.balance<<endl;
+            }
+            else
+            {
+                cout<<"Insufficient Balance..."<<endl; 
+            }  
         }
         else
         {
@@ -114,49 +114,50 @@ class Account{
 
     void checkKYC()
     {
-     if(isActive())
-     {
-     cout<<"Account Name: "<< this->accountName << endl;
-     cout<<"Balance: "<< this->balance<< endl;
-     cout<<"Bank id: "<< this->id << endl;
-     }
-     else
-     {
-    cout << " Bank id is not Active"<<endl;
-     }
+        if(isActive())
+        {
+            cout<<"Account Name: "<< this->accountName << endl;
+            cout<<"Balance: "<< this->balance<< endl;
+            cout<<"Bank id: "<< this->id << endl;
+        }
+        else
+        {
+            cout << " Bank id is not Active"<<endl;
+        }
     }
+
 
     friend void listAll(Account account[] );
 
 
     ~Account(){}//Destructor
+
 };
 
 void listAll(Account account[] ) //Size of araay passed as global var = NoOfBank
-{      cout<<endl<<"Account id  \t Account Name \t Balance"<<endl;
+{     
+    cout<<endl<<"Account id  \t Account Name \t Balance"<<endl;
+    
     for(int i=1; i<= NoOfBank ; i++)
     {
         cout<<account[i].id<<"\t\t\t"<<account[i].accountName<<"\t\t"<<account[i].balance<<"\t"<<endl;
-
     }
-    
     
 }
 void help()
 {
-cout<<"============================================"<<endl;
-cout<<"Menu Choices "<<endl;
-cout<<"1. Createing Account "<<endl;
-cout<<"2. Depositing Money"<<endl;
-cout<<"3. Withdrawing Amount"<<endl;
-cout<<"4. Take Sapat ( Transfering Amount)"<<endl;
-cout<<"5. Acessing KYC"<<endl;
-cout<<"6. Help"<<endl;
-cout<<"7. List All Bank"<<endl;
-cout<<"8. Total no of Bank"<<endl;
-cout<<"9. Exiting from program"<<endl;
-cout<<"_____________________________________________"<<endl;
-
+    cout<<"============================================"<<endl;
+    cout<<"Menu Choices "<<endl;
+    cout<<"1. Createing Account "<<endl;
+    cout<<"2. Depositing Money"<<endl;
+    cout<<"3. Withdrawing Amount"<<endl;
+    cout<<"4. Take Sapat ( Transfering Amount)"<<endl;
+    cout<<"5. Acessing KYC"<<endl;
+    cout<<"6. Help"<<endl;
+    cout<<"7. List All Bank"<<endl;
+    cout<<"8. Total no of Bank"<<endl;
+    cout<<"9. Exiting from program"<<endl;
+    cout<<"_____________________________________________"<<endl;
 }
 
 int main()
@@ -170,114 +171,120 @@ int main()
 
     while(1)
     {
-    cout<<endl<<"==================================="<<endl;
-    cout<<"Enter the choice"<<endl;
-    cin>>choice;
-    cout<<endl;
-    switch (choice)
-    {
-    case 1://Creating Account
-    {    cout<<"Enter Account Name : "<<endl;
-        cin>>accountName;
+        cout<<endl<<"==================================="<<endl;
+        cout<<"Enter the choice"<<endl;
+        cin>>choice;
+        cout<<endl;
 
-        account[++NoOfBank].createAccount(accountName);
+        switch (choice)
+        {
+            case 1://Creating Account
+            {    cout<<"Enter Account Name : "<<endl;
+                cin>>accountName;
 
-        break;
+                account[++NoOfBank].createAccount(accountName);
+
+                break;
+            }
+            case 2://Depositing Money
+            {    int depositAmount = 0 ;
+                int accountId = 0;
+
+                cout<<"Deposit Initiated..."<<endl;
+                cout<<"Enter Account id : ";
+                cin>>accountId;
+                cout<<" Amount of money need to be Deposited : ";
+                cin>>depositAmount;
+                cout<<endl;
+
+                account[accountId].deposit(depositAmount);
+                
+                break;
+            }   
+            case 3://Withdrawing Amount
+            {    int withdrawAmount = 0 ;
+                int accountId = 0 ;
+
+                cout<<"Withdraw Initiated..."<<endl;
+                cout<<"Enter Account id : ";
+                cin>>accountId;
+                cout<<" Amount of money need to be Withdrawn : ";
+                cin>>withdrawAmount;
+                cout<<endl;
+
+                account[accountId].withdraw(withdrawAmount);
+                
+                break;
+            }
+            case 4://Sapat
+            {   int transferAmount = 0, senderId = 0, receiverId = 0;
+                
+                cout<<"Sapat Initiated..."<<endl;
+                cout << "Enter Sender Account ID: ";
+                cin >> senderId;
+                cout <<endl<< "Enter Receiver Account ID: ";
+                cin >> receiverId;
+                cout <<endl<< "Enter Amount to Transfer: ";
+                cin >> transferAmount;
+                cout<<endl;
+
+                account[senderId].sapat(account[receiverId] ,transferAmount );
+                
+                break;
+
+            }
+            case 5://Acessing KYC
+            {
+                int accountId = 0;
+
+                cout<<"Showing KYC Details..."<<endl;
+                cout<<"Enter Account id : ";
+                cin>>accountId;
+                cout<<endl;
+
+                account[accountId].checkKYC();
+                
+                break;
+            }
+            case 6: //help initiation feature
+            {
+                help();
+
+                break;
+            }
+            
+            case 7://Listing all Bank Account
+            {
+                listAll(account);
+
+                break;
+            }
+
+            case 8:
+            {
+                cout<<"Total no of Bank Account : "<<NoOfBank<<endl;
+            
+            break;
+            }
+            case 9://Exit Feature
+            {
+                cout<<"Are you sure you want to Exit 1:yes 0:no"<<endl;
+                cin>>choice;
+
+                if(choice)
+                    return 0;//Exiting the program
+
+                break;
+            }
+
+            default:
+            {
+                cout<<"Invalid Command..."<<endl;
+                help();
+
+                break;
+            }
+        }
     }
-    case 2://Depositing Money
-    {    int depositAmount = 0 ;
-        int accountId = 0;
-
-        cout<<"Deposit Initiated..."<<endl;
-        cout<<"Enter Account id : ";
-        cin>>accountId;
-        cout<<" Amount of money need to be Deposited : ";
-        cin>>depositAmount;
-        cout<<endl;
-
-        account[accountId].deposit(depositAmount);
-        
-        break;
-    }   
-    case 3://Withdrawing Amount
-    {    int withdrawAmount = 0 ;
-        int accountId = 0 ;
-
-        cout<<"Withdraw Initiated..."<<endl;
-        cout<<"Enter Account id : ";
-        cin>>accountId;
-        cout<<" Amount of money need to be Withdrawn : ";
-        cin>>withdrawAmount;
-        cout<<endl;
-
-        account[accountId].withdraw(withdrawAmount);
-        
-        break;
-    }
-    case 4://Sapat
-     {   int transferAmount = 0, senderId = 0, receiverId = 0;
-        
-        cout<<"Sapat Initiated..."<<endl;
-        cout << "Enter Sender Account ID: ";
-        cin >> senderId;
-        cout <<endl<< "Enter Receiver Account ID: ";
-        cin >> receiverId;
-        cout <<endl<< "Enter Amount to Transfer: ";
-        cin >> transferAmount;
-        cout<<endl;
-
-        account[senderId].sapat(account[receiverId] ,transferAmount );
-        
-        break;
-
-     }
-     case 5://Acessing KYC
-     {
-        int accountId = 0;
-
-        cout<<"Showing KYC Details..."<<endl;
-        cout<<"Enter Account id : ";
-        cin>>accountId;
-        cout<<endl;
-
-        account[accountId].checkKYC();
-        
-        break;
-     }
-     case 6: //help initiation feature
-     {
-        help();
-
-        break;
-     }
-     
-     case 7://Listing all Bank Account
-     {
-        listAll(account);
-        break;
-     }
-
-     case 8:
-     cout<<"Total no of Bank Account : "<<NoOfBank<<endl;
-
-
-     break;
-
-     case 9://Exit Feature
-     cout<<"Are you sure you want to Exit 1:yes 0:no"<<endl;
-     cin>>choice;
-     if(choice)
-     return 0;//Exiting the program
-
-     break;
-
-    default:
-     cout<<"Invalid Command..."<<endl;
-     help();
-
-    break;
-
-    }
-}
     return 0;
 }

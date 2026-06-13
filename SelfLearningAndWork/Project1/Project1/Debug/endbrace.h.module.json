@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "Debug\\EndBrace.h.obj",
+            "outputs": [
+                "C:\\VScode Rohit\\OOPC\\SelfLearningAndWork\\Project1\\Project1\\Debug\\vc145.pdb",
+                "Debug\\",
+                "C:\\VScode Rohit\\OOPC\\SelfLearningAndWork\\Project1\\Project1\\Debug\\EndBrace.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "EndBrace.h",
+                    "source-path": "c:\\vscode rohit\\oopc\\selflearningandwork\\project1\\project1\\endbrace.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

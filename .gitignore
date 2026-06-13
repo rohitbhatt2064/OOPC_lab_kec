@@ -2,5 +2,6 @@
 
 #To Ignore Visual Studio's local configuration folders
 .vs/
+.x64
 *.vsidx
 *.slnx

@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "Debug\\EndBrace.obj",
+            "outputs": [
+                "Debug\\EndBrace.h_4F5C785AEE96C645.ifc.dt.module.json",
+                "Debug\\EndBrace.h_4F5C785AEE96C645.ifc.dt.d.json",
+                "Debug\\EndBrace.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "C:\\VScode Rohit\\OOPC\\SelfLearningAndWork\\Project1\\Project1\\EndBrace.h",
+                    "source-path": "c:\\vscode rohit\\oopc\\selflearningandwork\\project1\\project1\\endbrace.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}
