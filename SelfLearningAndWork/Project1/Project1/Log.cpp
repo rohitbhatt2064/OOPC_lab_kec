@@ -1,4 +1,5 @@
-#include<iostream>
+
+#include <iostream>
 
 void logr(const char* text)
 {
