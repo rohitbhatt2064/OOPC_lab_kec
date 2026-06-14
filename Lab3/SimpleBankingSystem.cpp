@@ -142,7 +142,9 @@ void listAll(Account account[] ) //Size of araay passed as global var = NoOfBank
     for(int i=1; i<= NoOfBank ; i++)
     {
         cout<<account[i].id<<"\t\t\t"<<account[i].accountName<<"\t\t"<<account[i].balance<<"\t"<<endl;
+
     }
+    
     
 }
 void help()
