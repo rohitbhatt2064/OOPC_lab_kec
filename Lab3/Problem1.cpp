@@ -1,5 +1,5 @@
 //Wap to create a class called Time having data member having data members day hr min and see
-//now Wap to add two numbers /objects of class time also make the use of constructor to initilize the data members
+//Wap to add two numbers /objects of class time also make the use of constructor to initilize the data members
 
 #include<iostream>
 
@@ -45,6 +45,7 @@ class Time
     }
     
 };
+
 
 Time Time::add(Time T)
 {
