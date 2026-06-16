@@ -4,7 +4,7 @@ void log(const char* message);
 
 int main() 
 {
-    log("jerry");
+    log("Rohit");
     
     return 0;
 }
