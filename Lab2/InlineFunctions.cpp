@@ -1,6 +1,6 @@
-// InlineFunctions
+// About Working of Inline Functions
 #include<iostream>
-#include <iomanip>
+#include <iomanip> // this is used for useing functions like setw() , setfill () and other
 
 using namespace std;
 
