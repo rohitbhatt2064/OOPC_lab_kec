@@ -26,12 +26,12 @@ to overload > operator and use constructor to initialize necissary data
 
     bool operator > (Length L)
     {
-        if(this->m > L.m )
+        if(this->m > L.m && this->cm > L.cm)
         {
-            if(this->cm > L.cm)
-            {
+        
+            
                 return 1;
-            }
+            
         }
 
         return 0; //if both if not true return 1 will not execute and the control come here
