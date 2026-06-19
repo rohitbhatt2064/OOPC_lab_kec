@@ -1,4 +1,7 @@
-//create a class weight that represent wt in kg and gram , create friend function that add two object
+//create a class weight that represent wt in kg and gram , 
+//create another class named price that represents price of the given weight 
+//create friend function on oth class that it is friend to both class
+//determine the price of input weight
 
 #include<iostream>
 
