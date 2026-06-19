@@ -1,7 +1,10 @@
-//create a class weight that represent wt in kg and gram , 
-//create another class named price that represents price of the given weight 
-//create friend function on oth class that it is friend to both class
-//determine the price of input weight
+/* create a class weight that represent wt in kg and gram , 
+create another class named price that represents price of the given weight 
+create friend function on oth class that it is friend to both class
+determine the price of input weight
+make a class friend to another class and and a function friend 
+of that class
+ */
 
 #include<iostream>
 
@@ -16,17 +19,17 @@ class Weight
     int kg,g;
 
     public:
+
     Weight()
     {
         this->kg = 0 ;
-       
     }
+
     Weight(int kg)
     {
          this->kg = kg ;
         
     }
-
    
     void setData()
     {
@@ -36,7 +39,6 @@ class Weight
         this->kg = kg ;
         
     }
-
 
     friend void calculate(Weight& , Price& );
 
@@ -84,7 +86,7 @@ class Price
     void calculate(Weight& w)
     {
         this->total = w.kg * this->rate;
-    }
+    } 
 
     ~Price(){};
 
@@ -98,8 +100,10 @@ void calculate(Weight& w , Price& p)
 
 int main()
 {
-   Weight W1(4);
-   Price P1(1000);
+   Weight W1;
+   Price P1;
+   W1.setData();
+   P1.setData();
    calculate(W1,P1);
    P1.showTotal();
 
