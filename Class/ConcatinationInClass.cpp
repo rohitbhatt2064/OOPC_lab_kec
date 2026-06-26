@@ -6,7 +6,7 @@ how to use bridge functuon(friend)function to dynamically concatenates the strin
 #include <iostream>
 #include<string.h>
 
-using namespace std;
+using namespace std; 
 
 class Last;
 
@@ -15,25 +15,16 @@ class First
     private:
     char* first;
 
-    void input()
-    {
-        cout<< "Enter First Name :";
-        cin>> first ;
-        cout<<endl;
-    }
-
     public:
-
     First()
     {
-        input();
+        first = nullptr;
     }
-
     First(const char* f)
     {
         int len = strlen( f );
         first = new char[ len +1 ];
-
+        strcpy(first , f);
     }
 
     ~First(){}
@@ -46,24 +37,17 @@ class Last
     private:
     char* last;
 
-    void input()
-    {
-        cout<< "Enter First Name :";
-        cin>> last ;
-        cout<<endl;
-    }
-
     public:
     Last()
     {
-        input();
+        last = nullptr;
     }
 
     Last(const char* l)
     {
         int len = strlen(l);
         last = new char[ len +1];
-
+        strcpy(last , l);
     }
 
     friend  char* fullName(First& f , Last& l);
@@ -86,14 +70,14 @@ Type Safety: Unlike old C-style macros (#define EXTRA_SPACE 2), constexpr respec
 Performance: The compiler treats EXTRA_SPACE exactly like the literal number 2, meaning your code remains highly efficient.
  */
     constexpr int Space_CHAR = 1;
-    constexpr int NULL_TERMINATOR = 1;
+   
 
-    int len = strlen(f.first) + strlen(l.last)+Space_CHAR+NULL_TERMINATOR;
-    char* name = new char[ len +1];
+    int len = strlen(f.first) + strlen(l.last)+Space_CHAR;
+    char* name = new char[ len + 1 ];
 
-    strcpy(name , f.first);
-    strcpy(name , " ");
-    strcpy(name , l.last);
+    strcpy(name, f.first); //strcpy and strcat are diffrent
+    strcat(name, " "); 
+    strcat(name, l.last);
 
     return name;
     
@@ -101,7 +85,9 @@ Performance: The compiler treats EXTRA_SPACE exactly like the literal number 2, 
 
 int main()
 {
-    
+    First F("Rohit");
+    Last L("Bhatt");
+    cout<<fullName(F,L)<<endl;
 }
 
 
