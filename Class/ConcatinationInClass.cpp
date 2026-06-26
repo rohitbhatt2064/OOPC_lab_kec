@@ -27,7 +27,12 @@ class First
         strcpy(first , f);
     }
 
-    ~First(){}
+
+    ~First()
+    {
+        delete[] first;
+        first = nullptr;
+    }
 
     friend char* fullName( First& f , Last& l);
 };
@@ -51,6 +56,14 @@ class Last
     }
 
     friend  char* fullName(First& f , Last& l);
+
+    ~Last()
+    {
+        {
+        delete[] last;
+        last = nullptr;
+        }
+    }
     
 };
 
@@ -87,7 +100,12 @@ int main()
 {
     First F("Rohit");
     Last L("Bhatt");
-    cout<<fullName(F,L)<<endl;
+    char* full = fullName(F,L);
+    cout<<full<<endl;
+    delete[] full;
+    full = nullptr;
+
+    return 0;
 }
 
 
