@@ -6,6 +6,8 @@ how to use bridge functuon(friend)function to dynamically concatenates the strin
 #include <iostream>
 #include<string.h>
 
+using namespace std;
+
 class Last;
 
 class First
@@ -23,6 +25,12 @@ class First
         int len = strlen( f );
         first = new char[ len +1 ];
 
+    }
+    void input()
+    {
+        cout<< "Enter First Name :";
+        cin>> first ;
+        cout<<endl;
     }
 
     ~First(){}
@@ -67,15 +75,22 @@ Performance: The compiler treats EXTRA_SPACE exactly like the literal number 2, 
  */
     constexpr int Space_CHAR = 1;
     constexpr int NULL_TERMINATOR = 1;
+
     int len = strlen(f.first) + strlen(l.last)+Space_CHAR+NULL_TERMINATOR;
     char* name = new char[ len +1];
+
     strcpy(name , f.first);
     strcpy(name , " ");
     strcpy(name , l.last);
-    return new char[ len +1];
+
+    return name;
     
 }
 
+int main()
+{
+    
+}
 
 
 
