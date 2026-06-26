@@ -15,22 +15,25 @@ class First
     private:
     char* first;
 
-    public:
-    First()
-    {
-        first = nullptr;
-    }
-    First(const char* f)
-    {
-        int len = strlen( f );
-        first = new char[ len +1 ];
-
-    }
     void input()
     {
         cout<< "Enter First Name :";
         cin>> first ;
         cout<<endl;
+    }
+
+    public:
+
+    First()
+    {
+        input();
+    }
+
+    First(const char* f)
+    {
+        int len = strlen( f );
+        first = new char[ len +1 ];
+
     }
 
     ~First(){}
@@ -43,17 +46,26 @@ class Last
     private:
     char* last;
 
+    void input()
+    {
+        cout<< "Enter First Name :";
+        cin>> last ;
+        cout<<endl;
+    }
+
     public:
     Last()
     {
-        last = nullptr;
+        input();
     }
+
     Last(const char* l)
     {
         int len = strlen(l);
         last = new char[ len +1];
 
     }
+
     friend  char* fullName(First& f , Last& l);
     
 };
