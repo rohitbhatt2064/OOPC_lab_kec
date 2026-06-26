@@ -21,7 +21,7 @@ class Student
          this->roll = roll ;
         this->name = name;
     }
-    Student (Student&);//Copy constructor
+    // Student (Student&);//Copy constructor
     void setData()
     {
         cin>>roll>>name;
