@@ -1,4 +1,4 @@
-/* Ecplain the case of ambiguity in multiple inheritance and how to you resolve it using scope operator
+/* /* Ecplain the case of ambiguity in multiple inheritance and how to you resolve it using scope operator
 ( this is called function overriding) 
 
 How does Inheritance support code reusibility?
@@ -72,6 +72,6 @@ int main()
 
     B a;
     B::a.input();
-    c a;
+    C a;
     a.input();
-}
+} */
