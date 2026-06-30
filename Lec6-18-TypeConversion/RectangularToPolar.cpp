@@ -1,7 +1,7 @@
 /* create a class name rect that represents cartition coordinate create another class polar that represent 
 polar coordinate in term of r and theta 
 convert the data type from cation to polar using destinationtype convertion
-without using friend function
+without using friend function.
  */
 
  #include <iostream>
@@ -9,6 +9,8 @@ without using friend function
 
  using namespace std ;
 
+ class Polar;
+ 
  class Rect
  {
     private:
@@ -23,7 +25,7 @@ without using friend function
     }
 
     float getX(){ return x;}
-    float getY(){ return y;}    //used getter methord to acess the indivisual variable
+    float getY(){ return y;}    //using getter  methord to acess the indivisual variable
     void show(){cout<<x<<"x "<<y <<" y"<<endl;}
 
     operator Polar();
