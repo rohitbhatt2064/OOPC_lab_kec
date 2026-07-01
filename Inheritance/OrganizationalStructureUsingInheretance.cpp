@@ -29,8 +29,7 @@ class Account :  Employe
     protected:
     double accountNumber;
 
-    Account(int account ):Employe(id , name , age , salary ,bankName)
-    {}
+    Account(int account ):Employe(id , name , age , salary ,bankName) {}
 
 
     ~Account(){}
